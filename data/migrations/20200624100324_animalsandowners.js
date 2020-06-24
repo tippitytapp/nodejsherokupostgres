@@ -8,7 +8,7 @@ exports.up = function(knex) {
                 .notNullable()
             owners.string('email')
                 .notNullable()
-            owners.integer('phone')
+            owners.string('phone')
         })
         .createTable('animals', animals => {
             animals.increments()
@@ -16,6 +16,8 @@ exports.up = function(knex) {
                 .notNullable()
             animals.string('age')
             animals.string('firstseen')
+            animals.string('type')
+                .notNullable()
             animals.integer('owner_id')
                 .unsigned()
                 .notNullable()

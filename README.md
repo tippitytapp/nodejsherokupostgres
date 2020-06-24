@@ -61,7 +61,7 @@
 2. you should know what tables you need, how they will connected
 3. what foreign keys you will need
 
-## After planning
+## After planning - create tables
 1. run the command `knex migrate:make <file-name>` or if you dont have knex globally installed run `npx knex migrate:make <file-name>`
     1. you will notice the filepath created that you put in the knexfile under migrations
     2. create your tables
@@ -74,3 +74,26 @@
 1. for each table you wish to make seeds for, you need to run the command `knex seed:make <file-name>` or `npx knex seed:make <file-name>` 
     1. it is important to note that you need to number these files, and you need to make the seed files in the same order you made your tables. 
     2. also, because you are using postgres, make sure you give default values for the ids
+2. once you finish creating your seed files, run the command `knex seed:run` or `npx knex seed:run`
+3. You can then go check your PGAdmin, refresh your database, navigate the tree down to schemas, and check your tables.
+
+## Deploy to Heroku
+1. if you have an account with heroku, you can proceed to step 2.. if not, i advise you to create a free account [here](http://www.heroku.com)
+2. On the heroku dashboard, in the upper right hand corner, there is a 'new' button. Click that button and 2 options will be present. click the "Create New App" button.
+3. Give your app a name, and then click "Create App"
+4. On the next page, you should land on "Deploy" page of your new app. 
+5. I will explain later how to use Heroku CLI
+6. For now, click the GitHub button in the middle.
+7. use the search bar to find your repo, and then click "connect"
+8. I then enable automatic deploys
+9. Lastly, i hit the deploy branch button on the bottom.
+
+## Add Heroku Postgres
+1. On the 'Overview' page of your app on Heroku, click the configure add-ons button.
+2. Search for `Heroku Postgres`
+3. In the pop-up hit `Provision`
+4. Once again on the `Overview` page you should see a notice that the DATABASE_URL has been added. if you do, continue.
+5. In the upper right hand corner you will see a dropdown button that says `More`, click it and select, `Run Console`
+6. In the popup type `bash` and hit enter
+7. whenever it loads, you should be able to migrate your tables and seed your data here. 
+    1. use the following command to migrate `knex migrate:latest` or `npx knex migrate:latest`
