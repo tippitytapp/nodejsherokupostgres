@@ -1,0 +1,32 @@
+{
+  "name": "nodejsherokupostgres",
+  "version": "1.0.0",
+  "description": "Walkthrough of Express, NodeJs, Heroku, Postgres Implementation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tippitytapp/nodejsherokupostgres.git"
+  },
+  "author": "Marc Tapp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tippitytapp/nodejsherokupostgres/issues"
+  },
+  "homepage": "https://github.com/tippitytapp/nodejsherokupostgres#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.2",
+    "knex": "^0.21.1",
+    "knex-cleaner": "^1.3.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "pg": "^8.2.1"
+  }
+}
