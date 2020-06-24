@@ -1,5 +1,7 @@
 # Express with NodeJs. Deployment to Heroku, and Database Management with Postgresql
 
+- in this project, i will be pretending to work in a veterinary clinic and need to store that data for what animal belongs to what owner
+
 ## Initial setup and package installation
 
 1. In your terminal, run the command `npm init -y`, this will create your `package.json` file with default values
@@ -53,3 +55,22 @@
     1. Pay special attention to the connection of your development and production environments.
     2. make sure you create a connection variable for pg
 3. now its time to code the `dbConfig.js` file
+
+## PLAN YOUR DATABASE
+1. before you create your tables, you should plan your db out
+2. you should know what tables you need, how they will connected
+3. what foreign keys you will need
+
+## After planning
+1. run the command `knex migrate:make <file-name>` or if you dont have knex globally installed run `npx knex migrate:make <file-name>`
+    1. you will notice the filepath created that you put in the knexfile under migrations
+    2. create your tables
+2. after you create your tables, open PGAdmin and add the database
+3. back in your terminal run the command `knex migrate:latest` or if you dont have knex installed globally run `npx knex migrate:latest`
+    1. this will send your tables to Postgresql
+4. back in PG admin, refresh your database and open the file tree to schemas, verify your tables have shown up
+
+### OPTIONAL - To create seeds
+1. for each table you wish to make seeds for, you need to run the command `knex seed:make <file-name>` or `npx knex seed:make <file-name>` 
+    1. it is important to note that you need to number these files, and you need to make the seed files in the same order you made your tables. 
+    2. also, because you are using postgres, make sure you give default values for the ids
