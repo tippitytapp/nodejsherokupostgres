@@ -97,3 +97,17 @@
 6. In the popup type `bash` and hit enter
 7. whenever it loads, you should be able to migrate your tables and seed your data here. 
     1. use the following command to migrate `knex migrate:latest` or `npx knex migrate:latest`
+    2. use the following command to seed `knex seed:run` or `npx knex seed:run`
+
+## Verify your app is online
+1. you can then click the `x` to close out of the console
+2. then in the top right corner you will be able to click the `Open App` button
+3. if you set up a `server.get` on your main `server.js` file, you should see your message
+```
+{
+    "api": "online"
+}
+```
+
+# SUCCESS 
+1. if you saw your message you successfully added it
